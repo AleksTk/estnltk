@@ -14,6 +14,10 @@ of any kind, either express or implied.
 #include "silp.h"
 
 
+
+
+
+
 //////////////////////////////////////////////////////////////////////
 // DATA STRUCTURES
 //////////////////////////////////////////////////////////////////////
@@ -376,3 +380,17 @@ SentenceSyllables syllabifySentence(const StringVector& sentence) {
     }
     return ss;
 }
+
+
+static void __init_so() {
+    FSCInit();
+}
+
+static void __init_so() __attribute__((constructor));
+
+
+static void __exit_so() {
+    FSCTerminate();
+}
+
+static void __exit_so() __attribute__((destructor));
